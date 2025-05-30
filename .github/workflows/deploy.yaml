@@ -1,15 +1,16 @@
 name: "EasyCode Deploy"
 
 on:
-    push:
-        branches: ["main"]
+  push:
+    branches: ["main"]
 
 jobs:
-    hello_job:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              run: echo "Checking out code..."
-              run: echo "Run migrations..."
-              run: echo "Generate binary..."
-              run: echo "Deploying to server..."
+  hello_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        run: |
+          echo "Checking out code..."
+          echo "Run migrations..."
+          echo "Generate binary..."
+          echo "Deploying to server..."
