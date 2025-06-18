@@ -1,16 +1,23 @@
 name: "EasyCode Deploy"
 
-on:
-  push:
-    branches: ["main"]
+on: push
 
 jobs:
-  hello_job:
+  first_job:
     runs-on: ubuntu-latest
+
+    env:
+      NAME: CodigoFacilito
+
     steps:
-      - name: Checkout code
-        run: |
-          echo "Checking out code..."
-          echo "Run migrations..."
-          echo "Generate binary..."
-          echo "Deploying to server..."
+      - name: Hello world
+        run: echo "Hello world $CodigoFacilito"
+
+  second_job:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: first_job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hello again
+        run: echo "Hello again"
