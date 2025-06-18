@@ -27,4 +27,4 @@ jobs:
 
     steps:
       - name: Hello again
-        run: echo "Hello again ${{ github.ref }}"
+        run: echo "$SALIDA"
